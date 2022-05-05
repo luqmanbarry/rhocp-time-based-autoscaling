@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: scale-up-job
+  namespace: MY_NAMESPACE_HERE
+spec:
+  template:
+    spec:
+      serviceAccountName: cron-autoscaler
+      restartPolicy: Never
+      containers:
+      - name: scale-up-job
+        image: registry.redhat.io/openshift4/ose-cli:v4.9
+        command: ["/bin/sh", "-c"]
+        args:
+          - "oc scale deploymentconfig/MY_APP_NAME --replicas=10"

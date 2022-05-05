@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cron-autoscaler
+  namespace: MY_NAMESPACE_HERE
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cron-autoscaler
+rules:
+- apiGroups: ["v1", "apps/v1", "apps.openshift.io/v1"]
+  resources: ["pods", "deploymentconfigs", "deployments", "statefulsets", "replicationcontrollers", "replicasets"]
+  verbs: ["get", "list", "create"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cron-autoscaler
+subjects:
+- kind: ServiceAccount
+  name: cron-autoscaler
+  namespace: MY_NAMESPACE_HERE
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cron-autoscaler
