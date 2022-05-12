@@ -9,9 +9,9 @@ kind: ClusterRole
 metadata:
   name: cron-autoscaler
 rules:
-- apiGroups: ["", "apps", "apps.openshift.io/v1"]
+- apiGroups: ["", "apps", "apps.openshift.io"]
   resources: ["pods", "deploymentconfigs", "deployments", "statefulsets", "replicationcontrollers", "replicasets"]
-  verbs: ["get", "list", "create"]
+  verbs: ["get", "list", "create", "update"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
