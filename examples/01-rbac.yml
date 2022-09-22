@@ -9,7 +9,7 @@ kind: ClusterRole
 metadata:
   name: cron-scaler
 rules:
-- apiGroups: ["", "apps", "apps.openshift.io"]
+- apiGroups: ["", "apps"]
   resources: [""]
   verbs: [""]
 ---
