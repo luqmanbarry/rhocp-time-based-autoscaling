@@ -6,7 +6,7 @@ metadata:
 spec:
   # schedule: "0 22 * * *"
   # TimeZone is UTC
-  schedule: "14 17 * * *"
+  schedule: "18 17 * * *"
   jobTemplate:
     spec:
       template:
