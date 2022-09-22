@@ -6,7 +6,7 @@ metadata:
 spec:
   # schedule: "0 1 * * *"
   # Execute every day at 1132
-  schedule: "25 11 * * *"
+  schedule: "55 11 * * *"
   jobTemplate:
     spec:
       template:
