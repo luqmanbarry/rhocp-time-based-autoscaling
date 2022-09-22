@@ -1,12 +1,12 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: scale-down-cronjob
+  name: loadtest-scale-up
   namespace: loadtest-scaler
 spec:
   # schedule: "0 1 * * *"
-  # Execute every day at 1132
-  schedule: "55 11 * * *"
+  # TimeZone is UTC
+  schedule: "07 17 * * *"
   jobTemplate:
     spec:
       template:

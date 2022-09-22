@@ -5,8 +5,8 @@ metadata:
   namespace: loadtest-scaler
 spec:
   # schedule: "0 22 * * *"
-  # Execute every day at 1130
-  schedule: "52 11 * * *"
+  # TimeZone is UTC
+  schedule: "05 17 * * *"
   jobTemplate:
     spec:
       template:
