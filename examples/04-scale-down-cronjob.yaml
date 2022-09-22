@@ -1,7 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: loadtest-scale-up
+  name: loadtest-scale-down
   namespace: loadtest-scaler
 spec:
   # schedule: "0 1 * * *"
