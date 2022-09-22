@@ -1,16 +1,20 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: scale-down-job
-  namespace: MY_NAMESPACE_HERE
+  name: loadtest-scale-up
+  namespace: loadtest-scaler
 spec:
   template:
     spec:
-      serviceAccountName: cron-autoscaler
+      serviceAccountName: cron-scaler
       restartPolicy: Never
       containers:
-      - name: scale-down-job
+      - name: scale-up-cronjob
+        env:
+        - name: APP_KIND_NAME
+          value: "deployment/loadtest"
         image: registry.redhat.io/openshift4/ose-cli:v4.9
-        command: ["/bin/sh", "-c"]
-        args:
-          - "oc scale deploymentconfig/MY_APP_NAME --replicas=1"
+        command:
+        - /bin/sh
+        - -c
+        - oc scale ${APP_KIND_NAME} --replicas=10

@@ -6,7 +6,7 @@ metadata:
 spec:
   # schedule: "0 22 * * *"
   # Execute every day at 1130
-  schedule: "15 11 * * *"
+  schedule: "23 11 * * *"
   jobTemplate:
     spec:
       template:
@@ -17,7 +17,7 @@ spec:
           - name: scale-up-cronjob
             env:
             - name: APP_KIND_NAME
-              value: "deployment/cron-scaler"
+              value: "deployment/loadtest"
             image: registry.redhat.io/openshift4/ose-cli:v4.9
             command:
             - /bin/sh
