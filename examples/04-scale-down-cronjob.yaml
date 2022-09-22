@@ -1,4 +1,4 @@
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: loadtest-scale-down
@@ -6,7 +6,7 @@ metadata:
 spec:
   # schedule: "0 1 * * *"
   # TimeZone is UTC
-  schedule: "10 17 * * *"
+  schedule: "12 17 * * *"
   jobTemplate:
     spec:
       template:
@@ -14,7 +14,7 @@ spec:
           serviceAccountName: cron-scaler
           restartPolicy: Never
           containers:
-          - name: scale-down-cronjob
+          - name: loadtest-scale-down
             env:
             - name: APP_KIND_NAME
               value: "deployment/loadtest"
