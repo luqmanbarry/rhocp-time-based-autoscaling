@@ -17,4 +17,4 @@ spec:
         command:
         - /bin/sh
         - -c
-        - oc scale ${APP_KIND_NAME} --replicas=10
+        - oc scale deployment/loadtest --replicas=10
