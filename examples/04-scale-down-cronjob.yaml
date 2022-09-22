@@ -1,0 +1,22 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: scale-down-cronjob
+  namespace: loadtest-scaler
+spec:
+  schedule: "0 1 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: cron-scaler
+          restartPolicy: Never
+          containers:
+          - name: scale-down-cronjob
+            env:
+            - name: APP_KIND_NAME
+              value: "deployment/cron-scaler"
+            image: registry.redhat.io/openshift4/ose-cli:v4.10
+            command: ["/bin/sh", "-c"]
+            args:
+              - "oc scale ${APP_KIND_NAME} --replicas=1"
