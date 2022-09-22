@@ -4,7 +4,9 @@ metadata:
   name: loadtest-scale-up
   namespace: loadtest-scaler
 spec:
-  schedule: "0 22 * * *"
+  # schedule: "0 22 * * *"
+  # Execute every day at 1130
+  schedule: "30 11 * * *"
   jobTemplate:
     spec:
       template:

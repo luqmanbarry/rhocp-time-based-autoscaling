@@ -18,7 +18,7 @@ spec:
         app: loadtest
     spec:
       containers:
-      - image: quay.io/redhattraining/loadtest:v1.0
+      - image: quay.io/redhattraining/scaling:v1.0
         name: loadtest
         resources:
           requests:

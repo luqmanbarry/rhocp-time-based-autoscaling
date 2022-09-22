@@ -4,7 +4,9 @@ metadata:
   name: scale-down-cronjob
   namespace: loadtest-scaler
 spec:
-  schedule: "0 1 * * *"
+  # schedule: "0 1 * * *"
+  # Execute every day at 1132
+  schedule: "32 11 * * *"
   jobTemplate:
     spec:
       template:
