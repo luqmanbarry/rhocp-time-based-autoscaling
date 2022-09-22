@@ -12,7 +12,7 @@ rules:
 - apiGroups: [""]
   resources: ["*"]
   verbs: ["*"]
-- apiGroups: ["apps", ]
+- apiGroups: ["apps", "extensions"]
   resources: ["*"]
   verbs: ["*"]
 ---
